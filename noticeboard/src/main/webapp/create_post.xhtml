@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	   <title>Noticeboard</title>
+	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<h1>Create post</h1>
+		<hr></hr>
+		
+		<br></br>
+		<form action="noticeboard.xhtml">
+       		<button type="submit" class="btn btn-primary">Back</button>
+   		</form>
+   		<br></br>
+   		
+		<h:form>
+			<div class="form-group">
+				<label for="postAuthor">Author</label>
+				<h:inputText value="#{post.author}" label="Author" id="postAuthor" class="form-control" placeholder="Enter author name">
+					<f:validateRequired />
+				</h:inputText>
+			</div>
+			
+			<div class="form-group">
+				<label for="postText">Text</label>
+				<h:inputTextarea value="#{post.text}" label="Text" id="postText" class="form-control">
+					<f:validateRequired />
+				</h:inputTextarea>
+			</div>
+			
+			<br></br>
+			<h:commandButton value="Submit" action="#{noticeboard.addPost(post.author, post.text)}" class="btn btn-primary" />
+			
+		</h:form>
+	</body>
+</html>

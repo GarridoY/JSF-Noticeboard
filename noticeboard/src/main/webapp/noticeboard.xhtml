@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	   <title>Noticeboard</title>
+	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<h1>Posts</h1>
+		<hr></hr>
+		
+		<br></br>
+		<form action="create_post.xhtml">
+         	<button type="submit" class="btn btn-primary">Create post</button>
+      	</form>
+      	<br></br>
+      	
+		<h:dataTable var="post" value="#{noticeboard.posts}" styleClass="table">
+			<h:column>
+				<f:facet name="header">#</f:facet>
+				#{post.id}
+			</h:column>
+			<h:column>
+				<f:facet name="header">New</f:facet>
+				#{post.new_post}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Author</f:facet>
+				#{post.author}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Text</f:facet>
+				#{post.text}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Date</f:facet>
+				#{post.date}
+			</h:column>
+		</h:dataTable>
+	</body>
+</html>
